@@ -12,6 +12,8 @@ import {
   PasswordArea,
 } from "./styles";
 import logo from "../../assets/logo.svg";
+import api from "../../services/api";
+import { useAuth } from "../../context/auth";
 
 type Values = {
   email: string;
@@ -19,6 +21,7 @@ type Values = {
 };
 
 export function Login() {
+  const { login } = useAuth();
   return (
     <Container>
       <Card>
@@ -28,14 +31,13 @@ export function Login() {
             email: "",
             password: "",
           }}
-          onSubmit={(
+          onSubmit={async (
             values: Values,
             { setSubmitting }: FormikHelpers<Values>
           ) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 500);
+            if (login) {
+              login(values.email, values.password);
+            }
           }}
         >
           <Form>

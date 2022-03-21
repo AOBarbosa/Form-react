@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/auth";
 import { HomePage } from "./pages/HomePage";
 import { Login } from "./pages/Login";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  const { isAuthenticated } = useAuth();
+  console.log(isAuthenticated);
   return (
     <Router>
       <Routes>

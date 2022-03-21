@@ -2,15 +2,16 @@ import { Field } from "formik";
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
   background: #e5e5e5;
 `;
 
 export const Card = styled.div`
-  position: absolute;
+  align-items: center;
+  justify-content: center;
   width: 438px;
   height: 534px;
-  left: 501px;
-  top: 161px;
+
   /* Brancos/Branco */
   background: #ffffff;
   box-shadow: 0px 0px 64px rgba(0, 0, 0, 0.25);
@@ -137,4 +138,5 @@ export const Button = styled.button`
   /* Primárias/Azul b2 */
   background: #02274f;
   border-radius: 9px;
+  color: white;
 `;
